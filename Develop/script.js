@@ -20,14 +20,14 @@ var specialChars = ["!", "#", "$", "%"];
 
 function generatePassword() {
   for (i=0; i < passwordCriteria[0]; i++) {
-    if (password.length < passwordCriteria[0] && upperCaseInput) {addUpper()};
-    if (password.length < passwordCriteria[0] && lowerCaseInput) {addlower()};
-    if (password.length < passwordCriteria[0] && numberInput) {addNum()};
-    if (password.length < passwordCriteria[0] && specialCharInput) {addSpec()};
+    if (password.length < passwordCriteria[0] && passwordCriteria[1]) {addUpper()};
+    if (password.length < passwordCriteria[0] && passwordCriteria[2]) {addlower()};
+    if (password.length < passwordCriteria[0] && passwordCriteria[3]) {addNum()};
+    if (password.length < passwordCriteria[0] && passwordCriteria[4]) {addSpec()};
   }
-  console.log(passwordCriteria[0]);
-  console.log(password);
-  console.log(password.length);
+  //console.log(passwordCriteria[0]);
+  //console.log(password);
+  //console.log(password.length);
   var passwordString = password.toString().replace(/,/g,"").trim();
   console.log(passwordString);
   displayPassword();
@@ -149,7 +149,7 @@ function startPasswordPrompt() {
 
 
 function displayPassword() {
-  console.log(password);
+ //console.log(password);
 }
 
 
