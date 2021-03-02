@@ -20,8 +20,17 @@ generateBtn.addEventListener("click", writePassword);
 
 
 function startPasswordPrompt() {
-  document.querySelector(".btn")
-  console.log ("The button was CLICKED!")     //This works
+  document.querySelector(".btn");
+  var charLength = prompt("How many characters long should this password be?");
+  charLength = parseInt(charLength);   
+  if (charLength < 8) {
+    alert("The password must be at least 8 characters");
+    startPasswordPrompt();
+  } else if (charLength > 128) {
+    alert("The password can not exceed 128 characters");
+    startPasswordPrompt();
+  }
+  
 }
 
 
