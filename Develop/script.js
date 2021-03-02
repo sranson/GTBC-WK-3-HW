@@ -18,6 +18,8 @@ var numbers = [0,1,2,3,4,5,6,7,8,9];
 var specialChars = ["!", "#", "$", "%"];
 
 
+// CALL FUNCTIONS TO ADD CHARACTERS TO PASSWORD ARRAY IF TRUE
+
 function generatePassword() {
   for (i=0; i < passwordCriteria[0]; i++) {
     if (password.length < passwordCriteria[0] && passwordCriteria[1]) {addUpper()};
@@ -25,14 +27,13 @@ function generatePassword() {
     if (password.length < passwordCriteria[0] && passwordCriteria[3]) {addNum()};
     if (password.length < passwordCriteria[0] && passwordCriteria[4]) {addSpec()};
   }
-  //console.log(passwordCriteria[0]);
-  //console.log(password);
-  //console.log(password.length);
   var passwordString = password.toString().replace(/,/g,"").trim();
   console.log(passwordString);
   displayPassword();
 }
 
+
+// ADD CHARACTER TO PASSWORD ARRAY IF TRUE
 
 function addUpper(){
   var random = (Math.floor(Math.random() * uppercaseLetters.length));     // select a random position from the 'uppercaseLetters' array 
@@ -63,7 +64,7 @@ function addSpec() {
   
 
 
-
+// GET BOOLEAN INPUT
 
 function upperCaseInput() {
   var includeUpper = confirm("Should the password contain uppercase letters?");
@@ -125,9 +126,7 @@ function specialCharInput() {
 }
 
 
-
-
-
+// BUTTON CLICK FUNCTION
 
 function startPasswordPrompt() {
   document.querySelector(".btn");
@@ -146,7 +145,7 @@ function startPasswordPrompt() {
 }
 
 
-
+// SHOW PASSWORD ON HTML PAGE
 
 function displayPassword() {
  //console.log(password);
@@ -155,9 +154,6 @@ function displayPassword() {
 
 
 /*
-
-1. Make the password array into a string
-2. Display the password string on the html page
-3. Refactor code
- 
+1. Display the password string on the html page
+2. Refactor code
 */
