@@ -19,8 +19,8 @@ var specialChars = ["!", "#", "$", "%"];
 
 function generatePassword() {
   for (i=0; i < passwordCriteria[0]; i++) {
-    if (password.length < passwordCriteria[0] && upperCaseInput) {addUpper()};
-    if (password.length < passwordCriteria[0] && lowerCaseInput) {addlower()};
+    if (password.length < passwordCriteria[0] && upperCaseInput === true) {addUpper()};
+    if (password.length < passwordCriteria[0] && lowerCaseInput === true) {addlower()};
     if (password.length < passwordCriteria[0] && numberInput) {addNum()};
     if (password.length < passwordCriteria[0] && specialCharInput) {addSpec()};
   }
@@ -58,16 +58,18 @@ function addSpec() {
 
 }
   
+
+
+
+
 function upperCaseInput() {
   var includeUpper = confirm("Should the password contain uppercase letters?");
     if (includeUpper) {
-      // code for if password needs uppercase letters
-      console.log("PASSWORD NEEDS UPPERCASE LETTERS");
+      console.log("upperCaseInput " + includeUpper);
       passwordCriteria.push(includeUpper);
       lowerCaseInput();
-
     } else {
-      // code for if password does NOT contain uppercase letters
+      console.log("upperCaseInput " + includeUpper);
       passwordCriteria.push(false);
       lowerCaseInput();
     }
@@ -76,14 +78,14 @@ function upperCaseInput() {
 function lowerCaseInput () {
   var includeLower = confirm("Should the password contain lowercase letters?");
     if (includeLower) {
-     // code for if password needs lowercase letters
-     console.log("PASSWORD NEEDS LOWERCASE LETTERS");
+    console.log("lowerCaseInput " + includeLower);
      passwordCriteria.push(includeLower);
      numberInput();
 
     } else {
     // code for if password does NOT contain lowercase letters
     passwordCriteria.push(false);  
+    console.log("lowerCaseInput " + includeLower);
     numberInput();
     }
 }
@@ -91,14 +93,14 @@ function lowerCaseInput () {
 function numberInput() {
   var includeNumber = confirm("Should the password contain numbers?");
     if (includeNumber) {
-      // code for if password needs numbers
-      console.log("PASSWORD NEEDS NUMBERS");
+      console.log("numberInput " + includeNumber);
       passwordCriteria.push(includeNumber);
       specialCharInput();
 
     } else {
       // code for if password does NOT needs numbers
       passwordCriteria.push(false);
+      console.log("numberInput " + includeNumber);
       specialCharInput();
     }
 }
@@ -107,16 +109,19 @@ function specialCharInput() {
   var includeSpecChar = confirm("Should the password contain special characters?");
   if (includeSpecChar) {
     // code for if password needs Special Characters
-    console.log("PASSWORD NEEDS SPECIAL CHARACTERS");
+    console.log("includeSpecChar " + includeSpecChar);
     passwordCriteria.push(includeSpecChar);
     console.log(passwordCriteria);
     generatePassword();
   } else {
     // code for if password does NOT need special characters
     passwordCriteria.push(false);
+    console.log("includeSpecChar " + includeSpecChar);
     generatePassword();
   }
 }
+
+
 
 function startPasswordPrompt() {
   document.querySelector(".btn");
