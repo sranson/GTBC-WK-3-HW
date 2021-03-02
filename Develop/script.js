@@ -20,8 +20,8 @@ var specialChars = ["!", "#", "$", "%"];
 
 function generatePassword() {
   for (i=0; i < passwordCriteria[0]; i++) {
-    if (password.length < passwordCriteria[0] && upperCaseInput === true) {addUpper()};
-    if (password.length < passwordCriteria[0] && lowerCaseInput === true) {addlower()};
+    if (password.length < passwordCriteria[0] && upperCaseInput) {addUpper()};
+    if (password.length < passwordCriteria[0] && lowerCaseInput) {addlower()};
     if (password.length < passwordCriteria[0] && numberInput) {addNum()};
     if (password.length < passwordCriteria[0] && specialCharInput) {addSpec()};
   }
@@ -36,7 +36,7 @@ function generatePassword() {
 
 function addUpper(){
   var random = (Math.floor(Math.random() * uppercaseLetters.length));     // select a random position from the 'uppercaseLetters' array 
-  upper = (uppercaseLetters[random]);                                       // upper is a randim uppercase letter
+  upper = (uppercaseLetters[random]);                                       // upper is a random uppercase letter
   password.push(upper);                                                     //push 'ucl' into the 'password' array
 }
 
