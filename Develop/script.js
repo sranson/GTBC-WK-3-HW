@@ -10,56 +10,82 @@ var passwordCriteria = [];          // Example: passwordCriteria = [10, true, fa
 var password = [];
 
 
-// Step 1: Make arrays for letters, numbers, and special characters
+
 var uppercaseLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var lowercaseLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var numbers = [0,1,2,3,4,5,6,7,8,9];
 var specialChars = ["!", "#", "$", "%"];
 
 
-
 function generatePassword() {
+  for (i=0; i < passwordCriteria[0]; i++) {
+    if (password.length < passwordCriteria[0] && upperCaseInput) {addUpper()};
+    if (password.length < passwordCriteria[0] && lowerCaseInput) {addlower()};
+    if (password.length < passwordCriteria[0] && numberInput) {addNum()};
+    if (password.length < passwordCriteria[0] && specialCharInput) {addSpec()};
+  }
+  console.log(passwordCriteria[0]);
+  console.log(password);
+  console.log(password.length);
+  displayPassword();
+}
 
+
+function addUpper(){
+  var random = (Math.floor(Math.random() * uppercaseLetters.length));     // select a random position from the 'uppercaseLetters' array 
+  upper = (uppercaseLetters[random]);                                       // upper is a randim uppercase letter
+  password.push(upper);                                                     //push 'ucl' into the 'password' array
+}
+
+function addlower() {
+  var random = (Math.floor(Math.random() * lowercaseLetters.length));      
+  lower = (lowercaseLetters[random]);                                       
+  password.push(lower);  
+
+}
+
+function addNum() {
+  var random = (Math.floor(Math.random() * numbers.length));              
+  num = (numbers[random]);                                             
+  password.push(num);   
+
+}
+
+function addSpec() {
+  var random = (Math.floor(Math.random() * specialChars.length));              
+  spec = (specialChars[random]);                                       
+  password.push(spec);  
+
+}
   
-    if (passwordCriteria[1] === true) {
-        var random = (Math.floor(Math.random() * uppercaseLetters.length));     // select a random position from the 'uppercaseLetters' array 
-        ucl = (uppercaseLetters[random]);                                       // ucl is a randim uppercase letter
-        password.push(ucl);                                                     //push 'ucl' into the 'password' array
-      
-    } if (passwordCriteria[2] === true) {
-        var random = (Math.floor(Math.random() * lowercaseLetters.length));      
-        lcl = (lowercaseLetters[random]);                                       
-        password.push(lcl);                                                       
+function upperCaseInput() {
+  var includeUpper = confirm("Should the password contain uppercase letters?");
+    if (includeUpper) {
+      // code for if password needs uppercase letters
+      console.log("PASSWORD NEEDS UPPERCASE LETTERS");
+      passwordCriteria.push(includeUpper);
+      lowerCaseInput();
 
-    } if (passwordCriteria[3] === true) {
-        var random = (Math.floor(Math.random() * numbers.length));              
-        ranNum = (numbers[random]);                                             
-        password.push(ranNum);   
-                                                
-    } if (passwordCriteria[4] === true) {
-        var random = (Math.floor(Math.random() * specialChars.length));              
-        ranSpecChar = (specialChars[random]);                                       
-        password.push(ranSpecChar);                                      
-        console.log(password);  
     } else {
-        return;
+      // code for if password does NOT contain uppercase letters
+      passwordCriteria.push(false);
+      lowerCaseInput();
     }
-  }
-  
+}
 
-function specialCharInput() {
-  var includeSpecChar = confirm("Should the password contain special characters?");
-  if (includeSpecChar) {
-    // code for if password needs Special Characters
-    console.log("PASSWORD NEEDS SPECIAL CHARACTERS");
-    passwordCriteria.push(includeSpecChar);
-    console.log(passwordCriteria);
-    generatePassword();
-  } else {
-    // code for if password does NOT need special characters
-    passwordCriteria.push(false);
-    generatePassword();
-  }
+function lowerCaseInput () {
+  var includeLower = confirm("Should the password contain lowercase letters?");
+    if (includeLower) {
+     // code for if password needs lowercase letters
+     console.log("PASSWORD NEEDS LOWERCASE LETTERS");
+     passwordCriteria.push(includeLower);
+     numberInput();
+
+    } else {
+    // code for if password does NOT contain lowercase letters
+    passwordCriteria.push(false);  
+    numberInput();
+    }
 }
 
 function numberInput() {
@@ -77,34 +103,19 @@ function numberInput() {
     }
 }
 
-function upperCaseInput() {
-  var includeUpper = confirm("Should the password contain uppercase letters?");
-    if (includeUpper) {
-      // code for if password needs uppercase letters
-      console.log("PASSWORD NEEDS UPPERCASE LETTERS");
-      passwordCriteria.push(includeUpper);
-      numberInput();
-
-    } else {
-      // code for if password does NOT contain uppercase letters
-      passwordCriteria.push(false);
-      numberInput();
-    }
-}
-
-function lowerCaseInput (includeLower) {
-  var includeLower = confirm("Should the password contain lowercase letters?");
-    if (includeLower) {
-     // code for if password needs lowercase letters
-     console.log("PASSWORD NEEDS LOWERCASE LETTERS");
-     passwordCriteria.push(includeLower);
-     upperCaseInput();
-
-    } else {
-    // code for if password does NOT contain lowercase letters
-    passwordCriteria.push(false);  
-    upperCaseInput();
-    }
+function specialCharInput() {
+  var includeSpecChar = confirm("Should the password contain special characters?");
+  if (includeSpecChar) {
+    // code for if password needs Special Characters
+    console.log("PASSWORD NEEDS SPECIAL CHARACTERS");
+    passwordCriteria.push(includeSpecChar);
+    console.log(passwordCriteria);
+    generatePassword();
+  } else {
+    // code for if password does NOT need special characters
+    passwordCriteria.push(false);
+    generatePassword();
+  }
 }
 
 function startPasswordPrompt() {
@@ -119,12 +130,14 @@ function startPasswordPrompt() {
     startPasswordPrompt();
   } else {
     passwordCriteria.push(charLength);
-    lowerCaseInput();
+    upperCaseInput();
   }
 }
 
 
-
+function displayPassword() {
+  console.log("PASSWORD PRINTS TO SCREEN")
+}
 
 
 
