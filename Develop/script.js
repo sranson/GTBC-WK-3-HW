@@ -1,3 +1,5 @@
+
+
 /*
 
 // Assignment Code
@@ -18,7 +20,35 @@ generateBtn.addEventListener("click", writePassword);
 */
 
 
+function upperCaseInput () {
+  var includeUpper = confirm("Should the password contain uppercase letters?");
+    if (includeUpper) {
+      // code for if password needs uppercase letters
+      console.log("PASSWORD NEEDS UPPERCASE LETTERS");
 
+
+    } else {
+      // code for if password does NOT contain uppercase letters
+    }
+}
+
+
+//function that will return booleans for (4) character types
+function lowerCaseInput (includeLower) {
+  var includeLower = confirm("Should the password contain lowercase letters?");
+    if (includeLower) {
+     // code for if password needs lowercase letters
+     console.log("PASSWORD NEEDS LOWERCASE LETTERS");
+     upperCaseInput();
+    } else {
+    // code for if password does NOT contain lowercase letters
+
+    upperCaseInput();
+    }
+}
+
+
+// Function that returns the character length of the password
 function startPasswordPrompt() {
   document.querySelector(".btn");
   var charLength = prompt("How many characters long should this password be?");
@@ -29,19 +59,18 @@ function startPasswordPrompt() {
   } else if (charLength > 128) {
     alert("The password can not exceed 128 characters");
     startPasswordPrompt();
+  } else {
+    lowerCaseInput();
   }
-  
 }
 
 
-/*
 
-1. When the button is clicked, ask for the length of the password.
-    -- TO DO:  --
-    1. Add a button click event listener to the red button
-    2. When clicked, a prompt should come up that says: "How many characters long should this password be?"
-    3. Store the input in a variable called "charLength"
-***** NOTE: Password must be between 8 and 128 characters
+
+
+
+
+/*
 
 2. Once the user provides the "charLength" input, ask the user:
     1. Should this password contain lowercase letters?            var includeLowercase;
