@@ -11,6 +11,7 @@ var password = [];
 
 
 
+
 var uppercaseLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var lowercaseLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var numbers = [0,1,2,3,4,5,6,7,8,9];
@@ -27,6 +28,8 @@ function generatePassword() {
   console.log(passwordCriteria[0]);
   console.log(password);
   console.log(password.length);
+  var passwordString = password.toString().replace(/,/g,"").trim();
+  console.log(passwordString);
   displayPassword();
 }
 
@@ -123,6 +126,9 @@ function specialCharInput() {
 
 
 
+
+
+
 function startPasswordPrompt() {
   document.querySelector(".btn");
   var charLength = prompt("How many characters long should this password be?");
@@ -140,15 +146,18 @@ function startPasswordPrompt() {
 }
 
 
+
+
 function displayPassword() {
-  console.log("PASSWORD PRINTS TO SCREEN")
+  console.log(password);
 }
 
 
 
 /*
 
-1. When all prompt questions are answered, a password should be generated based on the prompt responses
-2. When the password is generated, then it should be displayed in an alert OR within the box
+1. Make the password array into a string
+2. Display the password string on the html page
+3. Refactor code
  
 */
