@@ -1,15 +1,9 @@
 
 
-// Add event listener to generate button
-//generateBtn.addEventListener("click", writePassword);
-
-
 
 var passwordCriteria = [];          // Example: passwordCriteria = [10, true, false, true, true];
 
 var password = [];
-
-
 
 
 var uppercaseLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
@@ -19,7 +13,6 @@ var specialChars = ["!", "#", "$", "%"];
 
 
 // CALL FUNCTIONS TO ADD CHARACTERS TO PASSWORD ARRAY IF TRUE
-
 function generatePassword() {
   for (i=0; i < passwordCriteria[0]; i++) {
     if (password.length < passwordCriteria[0] && passwordCriteria[1]) {addUpper()};
@@ -27,14 +20,11 @@ function generatePassword() {
     if (password.length < passwordCriteria[0] && passwordCriteria[3]) {addNum()};
     if (password.length < passwordCriteria[0] && passwordCriteria[4]) {addSpec()};
   }
-  var passwordString = password.toString().replace(/,/g,"").trim();
-  console.log(passwordString);
   displayPassword();
 }
 
 
 // ADD CHARACTER TO PASSWORD ARRAY IF TRUE
-
 function addUpper(){
   var random = (Math.floor(Math.random() * uppercaseLetters.length));     // select a random position from the 'uppercaseLetters' array 
   upper = (uppercaseLetters[random]);                                       // upper is a random uppercase letter
@@ -65,7 +55,6 @@ function addSpec() {
 
 
 // GET BOOLEAN INPUT
-
 function upperCaseInput() {
   var includeUpper = confirm("Should the password contain uppercase letters?");
     if (includeUpper) {
@@ -127,7 +116,6 @@ function specialCharInput() {
 
 
 // BUTTON CLICK FUNCTION
-
 function startPasswordPrompt() {
   document.querySelector(".btn");
   var charLength = prompt("How many characters long should this password be?");
@@ -146,11 +134,14 @@ function startPasswordPrompt() {
 
 
 // SHOW PASSWORD ON HTML PAGE
-
 function displayPassword() {
- //console.log(password);
+ console.log(password);
+ var passwordString = password.toString().replace(/,/g,"").trim();
+ console.log(passwordString);
+ document.addEventListener("click", function() {
+   document.getElementById("showPassword").innerHTML = passwordString;
+ })
 }
-
 
 
 /*
