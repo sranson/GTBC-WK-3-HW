@@ -19,31 +19,47 @@ generateBtn.addEventListener("click", writePassword);
 
 */
 
-
-function upperCaseInput () {
-  var includeUpper = confirm("Should the password contain uppercase letters?");
-    if (includeUpper) {
-      // code for if password needs uppercase letters
-      console.log("PASSWORD NEEDS UPPERCASE LETTERS");
+function numberInput() {
+  var includeNumber = confirm("Should the password contain numbers?");
+    if (includeNumber) {
+      // code for if password needs numbers
+      console.log("PASSWORD NEEDS NUMBERS");
 
 
     } else {
-      // code for if password does NOT contain uppercase letters
+      // code for if password does NOT needs numbers
+
     }
 }
 
 
-//function that will return booleans for (4) character types
+
+function upperCaseInput() {
+  var includeUpper = confirm("Should the password contain uppercase letters?");
+    if (includeUpper) {
+      // code for if password needs uppercase letters
+      console.log("PASSWORD NEEDS UPPERCASE LETTERS");
+      numberInput();
+
+    } else {
+      // code for if password does NOT contain uppercase letters
+      numberInput();
+    }
+}
+
+
 function lowerCaseInput (includeLower) {
   var includeLower = confirm("Should the password contain lowercase letters?");
     if (includeLower) {
      // code for if password needs lowercase letters
      console.log("PASSWORD NEEDS LOWERCASE LETTERS");
      upperCaseInput();
+
     } else {
     // code for if password does NOT contain lowercase letters
 
     upperCaseInput();
+
     }
 }
 
