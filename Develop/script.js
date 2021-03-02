@@ -1,25 +1,13 @@
-/*
 
-// Assignment Code
-var generateBtn = document.querySelector("#generate");   
-
-// Write password to the #password input
-function writePassword() {                                
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+//generateBtn.addEventListener("click", writePassword);
 
-*/
+
 
 var passwordCriteria = [];          // Example: passwordCriteria = [10, true, false, true, true];
 
-var password = " ";
+var password = [];
 
 
 // Step 1: Make arrays for letters, numbers, and special characters
@@ -29,34 +17,35 @@ var numbers = [0,1,2,3,4,5,6,7,8,9];
 var specialChars = ["!", "#", "$", "%"];
 
 
-// Step 2: Create a function that takes in boolans as the input
 
 function generatePassword() {
-    if (passwordCriteria[1] == true) {
-        // select a random position from the 'uppercaseLetters' array 
-        var random = (Math.floor(Math.random() * uppercaseLetters.length));
-        ucl = (uppercaseLetters[random]);
-        //push the random letter into the 'password' string
-        password += ucl;
-        console.log(password);
-    } if (passwordCriteria[2] == true) {
-        //console.log("I am ALSO adding lowercase letter to the final password");
-    } if (passwordCriteria[3] == true) {
-      //console.log("I am EVEN adding some numbers in there");
-    } if (passwordCriteria[4] == true) {
-      //console.log("Add a special character too!");
+
+  
+    if (passwordCriteria[1] === true) {
+        var random = (Math.floor(Math.random() * uppercaseLetters.length));     // select a random position from the 'uppercaseLetters' array 
+        ucl = (uppercaseLetters[random]);                                       // ucl is a randim uppercase letter
+        password.push(ucl);                                                     //push 'ucl' into the 'password' array
+      
+    } if (passwordCriteria[2] === true) {
+        var random = (Math.floor(Math.random() * lowercaseLetters.length));      
+        lcl = (lowercaseLetters[random]);                                       
+        password.push(lcl);                                                       
+
+    } if (passwordCriteria[3] === true) {
+        var random = (Math.floor(Math.random() * numbers.length));              
+        ranNum = (numbers[random]);                                             
+        password.push(ranNum);   
+                                                
+    } if (passwordCriteria[4] === true) {
+        var random = (Math.floor(Math.random() * specialChars.length));              
+        ranSpecChar = (specialChars[random]);                                       
+        password.push(ranSpecChar);                                      
+        console.log(password);  
+    } else {
+        return;
     }
   }
-
-
-
-
-
-
-// Step 3: Based on the "true" values, push attributes from the corresponding arrays into a "password" array using a for loop 
-
-
-
+  
 
 function specialCharInput() {
   var includeSpecChar = confirm("Should the password contain special characters?");
@@ -68,8 +57,8 @@ function specialCharInput() {
     generatePassword();
   } else {
     // code for if password does NOT need special characters
-
-
+    passwordCriteria.push(false);
+    generatePassword();
   }
 }
 
@@ -83,6 +72,7 @@ function numberInput() {
 
     } else {
       // code for if password does NOT needs numbers
+      passwordCriteria.push(false);
       specialCharInput();
     }
 }
@@ -97,6 +87,7 @@ function upperCaseInput() {
 
     } else {
       // code for if password does NOT contain uppercase letters
+      passwordCriteria.push(false);
       numberInput();
     }
 }
@@ -111,7 +102,7 @@ function lowerCaseInput (includeLower) {
 
     } else {
     // code for if password does NOT contain lowercase letters
-
+    passwordCriteria.push(false);  
     upperCaseInput();
     }
 }
