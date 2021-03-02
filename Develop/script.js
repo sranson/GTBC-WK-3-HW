@@ -48,21 +48,17 @@ function addNum() {
 function addSpec() {
   var random = (Math.floor(Math.random() * specialChars.length));              
   spec = (specialChars[random]);                                       
-  password.push(spec);  
-
+  password.push(spec); 
 }
   
-
 
 // GET BOOLEAN INPUT
 function upperCaseInput() {
   var includeUpper = confirm("Should the password contain uppercase letters?");
     if (includeUpper) {
-      console.log("upperCaseInput " + includeUpper);
       passwordCriteria.push(includeUpper);
       lowerCaseInput();
     } else {
-      console.log("upperCaseInput " + includeUpper);
       passwordCriteria.push(false);
       lowerCaseInput();
     }
@@ -71,14 +67,10 @@ function upperCaseInput() {
 function lowerCaseInput () {
   var includeLower = confirm("Should the password contain lowercase letters?");
     if (includeLower) {
-    console.log("lowerCaseInput " + includeLower);
      passwordCriteria.push(includeLower);
      numberInput();
-
     } else {
-    // code for if password does NOT contain lowercase letters
     passwordCriteria.push(false);  
-    console.log("lowerCaseInput " + includeLower);
     numberInput();
     }
 }
@@ -86,14 +78,10 @@ function lowerCaseInput () {
 function numberInput() {
   var includeNumber = confirm("Should the password contain numbers?");
     if (includeNumber) {
-      console.log("numberInput " + includeNumber);
       passwordCriteria.push(includeNumber);
       specialCharInput();
-
     } else {
-      // code for if password does NOT needs numbers
       passwordCriteria.push(false);
-      console.log("numberInput " + includeNumber);
       specialCharInput();
     }
 }
@@ -101,15 +89,10 @@ function numberInput() {
 function specialCharInput() {
   var includeSpecChar = confirm("Should the password contain special characters?");
   if (includeSpecChar) {
-    // code for if password needs Special Characters
-    console.log("includeSpecChar " + includeSpecChar);
     passwordCriteria.push(includeSpecChar);
-    console.log(passwordCriteria);
     generatePassword();
   } else {
-    // code for if password does NOT need special characters
     passwordCriteria.push(false);
-    console.log("includeSpecChar " + includeSpecChar);
     generatePassword();
   }
 }
@@ -135,16 +118,13 @@ function startPasswordPrompt() {
 
 // SHOW PASSWORD ON HTML PAGE
 function displayPassword() {
- console.log(password);
  var passwordString = password.toString().replace(/,/g,"").trim();
- console.log(passwordString);
- document.addEventListener("click", function() {
-   document.getElementById("showPassword").innerHTML = passwordString;
- })
+    document.addEventListener("click", function() {
+      document.getElementById("showPassword").innerHTML = passwordString;
+    })
 }
 
 
 /*
-1. Display the password string on the html page
-2. Refactor code
+1. Refactor code
 */
