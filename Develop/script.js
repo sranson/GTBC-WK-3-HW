@@ -19,19 +19,31 @@ generateBtn.addEventListener("click", writePassword);
 
 */
 
+function specialCharInput() {
+  var includeChar = confirm("Should the password contain special characters?");
+  if (includeChar) {
+    // code for if password needs Special Characters
+    console.log("PASSWORD NEEDS SPECIAL CHARACTERS");
+  } else {
+    // code for if password does NOT need special characters
+
+
+  }
+}
+
+
 function numberInput() {
   var includeNumber = confirm("Should the password contain numbers?");
     if (includeNumber) {
       // code for if password needs numbers
       console.log("PASSWORD NEEDS NUMBERS");
-
+      specialCharInput();
 
     } else {
       // code for if password does NOT needs numbers
-
+      specialCharInput();
     }
 }
-
 
 
 function upperCaseInput() {
@@ -47,7 +59,6 @@ function upperCaseInput() {
     }
 }
 
-
 function lowerCaseInput (includeLower) {
   var includeLower = confirm("Should the password contain lowercase letters?");
     if (includeLower) {
@@ -59,10 +70,8 @@ function lowerCaseInput (includeLower) {
     // code for if password does NOT contain lowercase letters
 
     upperCaseInput();
-
     }
 }
-
 
 // Function that returns the character length of the password
 function startPasswordPrompt() {
