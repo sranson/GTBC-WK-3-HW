@@ -1,5 +1,3 @@
-
-
 /*
 
 // Assignment Code
@@ -19,11 +17,17 @@ generateBtn.addEventListener("click", writePassword);
 
 */
 
+var password = [];
+
+
+
 function specialCharInput() {
-  var includeChar = confirm("Should the password contain special characters?");
-  if (includeChar) {
+  var includeSpecChar = confirm("Should the password contain special characters?");
+  if (includeSpecChar) {
     // code for if password needs Special Characters
     console.log("PASSWORD NEEDS SPECIAL CHARACTERS");
+    password.push(includeSpecChar);
+    console.log(password);
   } else {
     // code for if password does NOT need special characters
 
@@ -31,12 +35,12 @@ function specialCharInput() {
   }
 }
 
-
 function numberInput() {
   var includeNumber = confirm("Should the password contain numbers?");
     if (includeNumber) {
       // code for if password needs numbers
       console.log("PASSWORD NEEDS NUMBERS");
+      password.push(includeNumber);
       specialCharInput();
 
     } else {
@@ -45,12 +49,12 @@ function numberInput() {
     }
 }
 
-
 function upperCaseInput() {
   var includeUpper = confirm("Should the password contain uppercase letters?");
     if (includeUpper) {
       // code for if password needs uppercase letters
       console.log("PASSWORD NEEDS UPPERCASE LETTERS");
+      password.push(includeUpper);
       numberInput();
 
     } else {
@@ -64,6 +68,7 @@ function lowerCaseInput (includeLower) {
     if (includeLower) {
      // code for if password needs lowercase letters
      console.log("PASSWORD NEEDS LOWERCASE LETTERS");
+     password.push(includeLower);
      upperCaseInput();
 
     } else {
@@ -73,7 +78,6 @@ function lowerCaseInput (includeLower) {
     }
 }
 
-// Function that returns the character length of the password
 function startPasswordPrompt() {
   document.querySelector(".btn");
   var charLength = prompt("How many characters long should this password be?");
@@ -85,6 +89,7 @@ function startPasswordPrompt() {
     alert("The password can not exceed 128 characters");
     startPasswordPrompt();
   } else {
+    password.push(charLength);
     lowerCaseInput();
   }
 }
@@ -94,16 +99,7 @@ function startPasswordPrompt() {
 
 
 
-
 /*
-
-2. Once the user provides the "charLength" input, ask the user:
-    1. Should this password contain lowercase letters?            var includeLowercase;
-    2. Should this password contain uppercase letters?            var includeUppercase;
-    3. Should this password contain numbers?                      var includeNumber;
-    4. Should this password contain special characters?           var includeSpecialChar;
-    -- TO DO: --
-    1. Store each of the above responses in a boolean type variable
 
 3. Once I have the input for all variables,
 
