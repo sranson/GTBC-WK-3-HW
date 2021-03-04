@@ -31,9 +31,9 @@ function getRandomLetter() {
   return randomLetter;
 }
 
+// FUNCTION TO ADD LOWER AND UPPERCASE LETTERS
 function addLetter() {
   var random = getRandomLetter();
-  //console.log(random);
   if (passwordCriteria[1]) {
     password.push(random);
   }
@@ -42,14 +42,14 @@ function addLetter() {
   }
 }
 
-
+// FUNCTION TO ADD RANDOM NUMBER
 function addNum() {
   var random = (Math.floor(Math.random() * numbers.length));              
   num = (numbers[random]);                                             
   password.push(num);   
-
 }
 
+//FUNCTION TO ADD RANDOM SPECIAL CHARACTER
 function addSpec() {
   var random = (Math.floor(Math.random() * specialChars.length));              
   spec = (specialChars[random]);                                       
@@ -128,8 +128,3 @@ function displayPassword() {
       document.getElementById("showPassword").innerHTML = passwordString;
     })
 }
-
-
-/*
-1. Refactor code
-*/
