@@ -15,8 +15,8 @@ var specialChars = ["!", "#", "$", "%"];
 // CALL FUNCTIONS TO ADD CHARACTERS TO PASSWORD ARRAY IF TRUE
 function generatePassword() {
   for (i=0; i < passwordCriteria[0]; i++) {
-    if (password.length < passwordCriteria[0] && passwordCriteria[1]) {addUpper()};
-    if (password.length < passwordCriteria[0] && passwordCriteria[2]) {addlower()};
+    if (password.length < passwordCriteria[0] && passwordCriteria[1]) {addLetter()};
+    if (password.length < passwordCriteria[0] && passwordCriteria[2]) {addLetter()};
     if (password.length < passwordCriteria[0] && passwordCriteria[3]) {addNum()};
     if (password.length < passwordCriteria[0] && passwordCriteria[4]) {addSpec()};
   }
@@ -31,17 +31,17 @@ function getRandomLetter() {
   return randomLetter;
 }
 
-
-// ADD CHARACTER TO PASSWORD ARRAY IF TRUE
-function addUpper(){
-  var random = getRandomLetter();                                           
-  password.push(random);                                                   
+function addLetter() {
+  var random = getRandomLetter();
+  //console.log(random);
+  if (passwordCriteria[1]) {
+    password.push(random);
+  }
+  if (passwordCriteria[2]) {
+    password.push(random.toLowerCase());
+  }
 }
 
-function addlower() {
-  var random = getRandomLetter();                                        
-  password.push(random.toLowerCase());  
-}
 
 function addNum() {
   var random = (Math.floor(Math.random() * numbers.length));              
