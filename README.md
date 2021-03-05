@@ -4,9 +4,9 @@ For this assignment, I was tasked with creating a program that generated a passw
 
 ## I learned:
 1. How to use the "prompt" and "confirm" methods to get user input from dialogue boxes. 
-2. How to store the user's from the dialogue box input into a boolean- type variable for later use.
+2. How to store the user's input from the dialogue box into a boolean- type variable for later use.
 3. How to use the .addEventListener method.
-4. How to update content in an HTML document using .innerHTML method. 
+4. How to update content in an HTML document using the .innerHTML method. 
 
 
 ## Example of the Homework Assignment:
