@@ -13,7 +13,7 @@ For this assignment, I was tasked with creating a program that generated a passw
 ![Password Generator](Assets/PasswordGenerator.png)
 
 
-#### [Password Generator](https://sranson.github.io/GTBC-WK-3-HW/)
+#### [Deployed Password Generator](https://sranson.github.io/WK-3-PasswordGenerator/)
 
 ### Acknowledgeable Areas of Improvement going forward:
 1. Code Refactoring - there are instances of repeated code that should be refactored and functions that I would have liked to consolidate. 
